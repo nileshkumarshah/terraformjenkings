@@ -17,18 +17,18 @@ pipeline {
             }
         }
         
-        stage('Push Docker Image to Docker Hub') {
-            steps {
-                script {
-                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerpwd')]) {
-                        if (isUnix()) {
-                            sh 'echo $dockerpwd | docker login --username shahnilesh --password-stdin'
-                            sh 'docker scan jenkinsautomate'
-                            sh 'docker push jenkinsautomate'
-                        } 
-                    }
-                }
-            }
-        }
+        // stage('Push Docker Image to Docker Hub') {
+        //     steps {
+        //         script {
+        //             withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerpwd')]) {
+        //                 if (isUnix()) {
+        //                     sh 'echo $dockerpwd | docker login --username shahnilesh --password-stdin'
+        //                     sh 'docker scan jenkinsautomate'
+        //                     sh 'docker push jenkinsautomate'
+        //                 } 
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
